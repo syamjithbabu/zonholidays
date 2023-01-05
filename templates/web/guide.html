@@ -1,0 +1,50 @@
+{% extends 'web/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcrumb breadcrumb-style-one">
+    <div class="container">
+        <div class="col-lg-12 text-center">
+            <h2 class="breadcrumb-title">Tour Guide</h2>
+            <ul class="d-flex justify-content-center breadcrumb-items">
+                <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Home</a></li>
+                <li class="breadcrumb-item active">Tour Guide</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="guide-wrapper  pt-80">
+    <div class="container">
+        <div class="row">
+            {% for guide in guides %}
+            <div class="col-lg-4 col-md-6">
+                <div class="guide-card-gamma">
+                    <div class="guide-image">
+                        <img src="{{guide.guide_image.url}}" alt="">
+                        <ul class="guide-social-links">
+                            <li><a href="{{guide.guide_instagram_link}}"><i class='bx bxl-instagram'></i></a></li>
+                            <li><a href="{{guide.guide_facebook_link}}"><i class='bx bxl-facebook'></i></a></li>
+                            <li><a href="{{guide.guide_twitter_link}}"><i class='bx bxl-twitter'></i></a></li>
+                        </ul>
+                        <div class="contact-lavel">
+                            <a href="tel:{{guide.guide_contact_number}}">Contact</a>
+                        </div>
+                    </div>
+                    <div class="guide-content">
+                        <h4 class="guide-name">{{guide.guide_name}}</h4>
+                        <h6 class="guide-designation">{{guide.guide_role}}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

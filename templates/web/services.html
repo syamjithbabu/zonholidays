@@ -1,0 +1,40 @@
+{% extends 'web/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcrumb breadcrumb-style-one">
+    <div class="container">
+        <div class="col-lg-12 text-center">
+            <h2 class="breadcrumb-title">Services</h2>
+            <ul class="d-flex justify-content-center breadcrumb-items">
+                <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Home</a></li>
+                <li class="breadcrumb-item active">Services</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="destination-wrapper pt-110">
+    <div class="container">
+        <div class="row g-3">
+            {% for service in services %}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="destination-card-style-two">
+                    <div class="d-card-thumb">
+                        <img src="{{service.service_image.url}}" alt="">
+                    </div>
+                    <div class="d-card-content">
+                        <h4 class="destination-title"><a href="{% url 'web:service_details' service.id %}">{{service.service_name}}</a></h4>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,189 @@
+{% extends 'web/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="breadcrumb breadcrumb-style-one">
+    <div class="container">
+        <div class="col-lg-12 text-center">
+            <h2 class="breadcrumb-title">Packages</h2>
+            <ul class="d-flex justify-content-center breadcrumb-items">
+                <li class="breadcrumb-item"><a href="{% url 'web:index' %}">Home</a></li>
+                <li class="breadcrumb-item active">Packages</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="package-area offer-package-style-one pt-110 pb-110">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="offer-switch-button2">
+                <ul class="nav nav-pills mb-3 justify-content-center gap-sm-4 gap-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-offer0" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab0" type="button" role="tab" aria-controls="pills-offer-tab0"
+                            aria-selected="true">All</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-offer1" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab1" type="button" role="tab" aria-controls="pills-offer-tab1"
+                            aria-selected="true">Domestic</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-offer2" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab2" type="button" role="tab" aria-controls="pills-offer-tab2"
+                            aria-selected="false">International</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-offer3" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab3" type="button" role="tab" aria-controls="pills-offer-tab3"
+                            aria-selected="false">Hajj & Umrah</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="offer-single-tabs">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-offer-tab0" role="tabpanel"
+                        aria-labelledby="pills-offer0">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="{% url 'web:packages' %}" class="button-fill-round">View All Packages</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-offer-tab1" role="tabpanel"
+                        aria-labelledby="pills-offer1">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in domestic_packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="{% url 'web:packages' %}" class="button-fill-round">View All Packages</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-offer-tab2" role="tabpanel" aria-labelledby="pills-offer2">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in international_packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="package.html" class="button-fill-round">View All Offer</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-offer-tab3" role="tabpanel" aria-labelledby="pills-offer3">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in hajj_packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %} 
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="package.html" class="button-fill-round">View All Offer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

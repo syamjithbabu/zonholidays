@@ -1,0 +1,656 @@
+{% extends 'web/partials/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+<div class="hero-area hero-style-three">
+    <img src="{% static 'web/images/banner/banner-plane.svg' %}" class="img-fluid banner-plane">
+    <div class="hero-main-wrapper position-relative">
+        <div class="hero-social">
+        </div>
+        <div class="swiper hero-slider-three ">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="slider-bg-1">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-8">
+                                    <div class="hero3-content">
+                                        <span class="title-top">Wellcome To Zon Holidays</span>
+                                        <h1>Journey to Explore World</h1>
+                                        <p>Nulla facilisi. Maecenas ac tellus ut ligula interdum convallis. Nullam
+                                            dapibus on erat in dolor posuere, none hendrerit lectus ornare. Suspendisse
+                                            sit amet turpina sagittis, ultrices dui et, aliquam urna.</p>
+                                        <a href="#" class="button-fill-primary banner3-btn">Book Your Travel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="slider-bg-3">
+                        <div class="container">
+                            <div class="row d-flex justify-content-center align-items-center">
+                                <div class="col-lg-8">
+                                    <div class="hero3-content">
+                                        <span class="title-top">Wellcome To Zon Holidays</span>
+                                        <h1>Enjoy Your New Adventure</h1>
+                                        <p>Nulla facilisi. Maecenas ac tellus ut ligula interdum convallis. Nullam
+                                            dapibus on erat in dolor posuere, none hendrerit lectus ornare. Suspendisse
+                                            sit amet turpina sagittis, ultrices dui et, aliquam urna.</p>
+                                        <a href="#" class="button-fill-primary banner3-btn">Book Your Travel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-arrows text-center d-lg-flex flex-column d-none gap-5">
+            <div class="hero-prev3" tabindex="0" role="button" aria-label="Previous slide"> <i
+                    class="bi bi-arrow-left"></i></div>
+            <div class="hero-next3" tabindex="0" role="button" aria-label="Next slide"><i class="bi bi-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="searchbar-section">
+    <div class="container">
+        <div class="multi-main-searchber">
+            <div class="row g-4">
+                <form method = 'POST'>
+                {% csrf_token %}
+                <div class="col-lg-10">
+                    <div class="row gx-0 gy-4">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="search-box-single destination-box">
+                                <div class="searchbox-icon">
+                                    <i class="bi bi-geo-alt"></i>
+                                </div>
+                                <div class="searchbox-input">
+                                    <label for="deatination_drop">Destination</label>
+                                    <select data-placeholder="Where Are You Going?" id="deatination_drop">
+                                        <option value="place">Where Are You Going?</option>
+                                        <optgroup label="India">
+                                            <option>
+                                                Solt Lake
+                                            </option>
+                                            <option>
+                                                Kolkata
+                                            </option>
+                                            <option>
+                                                Mohamia
+                                            </option>
+                                            <option>
+                                                Mumbai
+                                            </option>
+                                            <option>
+                                                New Delhi
+                                            </option>
+                                        </optgroup>
+                                        <optgroup label=" Bangladash">
+                                            <option>
+                                                Cox's Bazer
+                                            </option>
+                                            <option>
+                                                Rangamati
+                                            </option>
+                                            <option>
+                                                Banderban
+                                            </option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="search-box-single type-box">
+                                <div class="searchbox-icon">
+                                    <i class="bi bi-text-paragraph"></i>
+                                </div>
+                                <div class="searchbox-input">
+                                    <label for="activity-dropdown">Travel Type</label>
+                                    <select class="defult-select-drowpown" data-placeholder="All Activity"
+                                        id="activity-dropdown">
+                                        <option value="">All Activity</option>
+                                        <option value="1">Type 1</option>
+                                        <option value="2">Type 2</option>
+                                        <option value="3">Type 3</option>
+                                        <option value="4">Type 4</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="search-box-single type-box">
+                                <div class="searchbox-icon">
+                                    <i class="bi bi-person-plus"></i>
+                                </div>
+                                <div class="searchbox-input">
+                                    <label for="person-dropdown">Person</label>
+                                    <select class="defult-select-drowpown" id="person-dropdown">
+                                        <option selected value="0">01</option>
+                                        <option value="1">02</option>
+                                        <option value="2">03</option>
+                                        <option value="3">04</option>
+                                        <option value="4">05</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="search-box-single date-box">
+                                <div class="searchbox-icon">
+                                    <i class="bi bi-capslock"></i>
+                                </div>
+                                <div class="searchbox-input date-picker-input">
+                                    <label for="datepicker">When</label>
+                                    <input placeholder="Select your date" type="text" name="checkIn" id="datepicker"
+                                        value="" class="calendar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="main-form-submit">
+                        <button type="submit" onclick="sitedelete()">Find Now</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="package-area offer-package-style-one pt-110 pb-110">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="offer-switch-button2">
+                <ul class="nav nav-pills mb-3 justify-content-center gap-sm-4 gap-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-offer0" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab0" type="button" role="tab" aria-controls="pills-offer-tab0"
+                            aria-selected="true">All</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-offer1" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab1" type="button" role="tab" aria-controls="pills-offer-tab1"
+                            aria-selected="true">Domestic</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-offer2" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab2" type="button" role="tab" aria-controls="pills-offer-tab2"
+                            aria-selected="false">International</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-offer3" data-bs-toggle="pill"
+                            data-bs-target="#pills-offer-tab3" type="button" role="tab" aria-controls="pills-offer-tab3"
+                            aria-selected="false">Hajj & Umrah</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="offer-single-tabs">
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-offer-tab0" role="tabpanel"
+                        aria-labelledby="pills-offer0">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="{% url 'web:packages' %}" class="button-fill-round">View All Packages</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-offer-tab1" role="tabpanel"
+                        aria-labelledby="pills-offer1">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in domestic_packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="{% url 'web:packages' %}" class="button-fill-round">View All Packages</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-offer-tab2" role="tabpanel" aria-labelledby="pills-offer2">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in international_packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="package.html" class="button-fill-round">View All Offer</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-offer-tab3" role="tabpanel" aria-labelledby="pills-offer3">
+                        <div class="row d-flex justify-content-center g-4">
+                            {% for packages in hajj_packages %}
+                            <div class="col-lg-4 col-md-6 col-6 fadeffect">
+                                <div class="package-card-beta">
+                                    <div class="package-thumb">
+                                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                                src="{{packages.image_1.url}}" alt=""></a>
+                                        <p class="card-lavel">
+                                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                        </p>
+                                    </div>
+                                    <div class="package-card-body">
+                                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                        <div class="p-card-bottom">
+                                            <div class="book-btn">
+                                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                        class='bx bxs-right-arrow-alt'></i></a>
+                                            </div>
+                                            <div class="p-card-info">
+                                                <span>From</span>
+                                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %} 
+                        </div>
+                        <div class="package-page-btn text-center mt-60">
+                            <a href="package.html" class="button-fill-round">View All Offer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="destination-area destination-style-two pt-110 pb-110">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-sm-10 ">
+                <div class="section-head-alpha text-center mx-auto">
+                    <h2>Top Destination Gallery</h2>
+                    <p>Duis rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus.
+                        Suspendissendt blandit interdum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center g-4">
+            {% for gallery in gallery %}
+            <div class="col-lg-4 col-md-6 col-6 col-sm-10 fadeffect">
+                <div class="destination-item">
+                    <div class="destination-img">
+                        <img src="{{gallery.image.url}}" alt="">
+                    </div>
+                    <div class="destination-overlay">
+                        <div class="content">
+                            <a href="{% url 'web:gallery_single' gallery.id %}">
+                                <h5>{{gallery.place.place_name}}</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<div class="upcoming-tour-area pt-110 pb-110 chain">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-5 d-flex justify-content-lg-start justify-content-center">
+                <div class="section-head-alpha text-lg-start text-center">
+                    <h2 class="text-white">Upcoming Best Tours</h2>
+                    <p class="text-white">Duis rutrum nisl urna maecenas vel libero faucibus nisi vene natis hendrerit
+                        aid lectus suspendissendt.</p>
+                </div>
+            </div>
+            <div class="col-lg-7 d-flex justify-content-lg-end justify-content-center">
+                <div class="slider-arrows text-center d-lg-flex flex-row justify-content-center d-none gap-5">
+                    <div class="testi-prev4" tabindex="0" role="button" aria-label="Previous slide"><i
+                            class="bi bi-arrow-left"></i></div>
+                    <div class="testi-next4" tabindex="0" role="button" aria-label="Next slide"><i
+                            class="bi bi-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center fadeffect">
+            <div class="col-lg-12">
+                <div class="swiper upcoming-tour">
+                    <div class="swiper-wrapper">
+                        {% for packages in packages %}
+                        <div class="swiper-slide">
+                            <div class="package-card-beta">
+                                <div class="package-thumb">
+                                    <a href="{% url 'web:package_details' packages.id %}"><img
+                                            src="{{packages.image_1.url}}" alt=""></a>
+                                    <p class="card-lavel">
+                                        <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                                    </p>
+                                </div>
+                                <div class="package-card-body">
+                                    <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                                    <div class="p-card-bottom">
+                                        <div class="book-btn">
+                                            <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                                    class='bx bxs-right-arrow-alt'></i></a>
+                                        </div>
+                                        <div class="p-card-info">
+                                            <span>From</span>
+                                            <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center d-flex justify-content-center">
+            <div class="col-md-4">
+                <a href="destination.html" class="button-outlined-primary upcoming-btn mt-50">View All Offer</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="package-area package-style-two pt-110 chain">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-8 col-sm-10">
+                <div class="section-head-alpha">
+                    <h2>Recommended Tours</h2>
+                    <p>Duis rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus.
+                        Suspendissendt
+                        blandit interdum. Sed pellentesque at nunc eget consectetur.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-10">
+                <div class="package-btn text-lg-end">
+                    <a href="package.html" class="button-fill-primary all-package-btn">View All Tour</a>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center g-4">
+            {% for packages in packages %}
+            <div class="col-lg-4 col-md-6 col-sm-10 col-6  fadeffect">
+                <div class="package-card-beta">
+                    <div class="package-thumb">
+                        <a href="{% url 'web:package_details' packages.id %}"><img
+                                src="{{packages.image_1.url}}" alt=""></a>
+                        <p class="card-lavel">
+                            <i class="bi bi-clock"></i> <span>{{packages.number_of_days}} Day & {{packages.number_of_nights}} night</span>
+                        </p>
+                    </div>
+                    <div class="package-card-body">
+                        <h3 class="p-card-title"><a href="{% url 'web:package_details' packages.id %}">{{packages.place_name}}</a></h3>
+                        <div class="p-card-bottom">
+                            <div class="book-btn">
+                                <a href="{% url 'web:package_details' packages.id %}">Book Now <i
+                                        class='bx bxs-right-arrow-alt'></i></a>
+                            </div>
+                            <div class="p-card-info">
+                                <span>From</span>
+                                <h6>₹{{packages.rate}} <span>Per Person</span></h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="package-page-btn text-center mt-60">
+            <a href="package.html" class="button-fill-round">View All</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="testimonial-area testimonial-style-three pt-110 pb-110">
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-5 col-sm-10">
+                <div class="section-head-alpha text-lg-start text-center">
+                    <h2 class="text-white">Travelers Review</h2>
+                    <p class="text-white">Duis rutrum nisl urna maecenas vel libero faucibus nisi vene natis hendrerit
+                        aid lectus suspendissendt.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-10 d-flex justify-content-end">
+                <div class="slider-arrows text-center d-lg-flex flex-row d-none gap-5">
+                    <div class="testi-prev4" tabindex="0" role="button" aria-label="Previous slide"> <i
+                            class="bi bi-arrow-left"></i></div>
+                    <div class="testi-next4" tabindex="0" role="button" aria-label="Next slide"><i
+                            class="bi bi-arrow-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-12">
+                <div class="swiper testimonial-slider-three">
+                    <div class="swiper-wrapper">
+                        {% for testimonial in testimonials %}
+                        <div class="swiper-slide">
+                            <div class="testimonial-card-beta mx-auto">
+                                <div class="testimonial-quote-icon">
+                                    <img src="{% static 'web/images/icons/quote-review.svg' %}" class="img-fluid" />
+                                </div>
+                                <div class="testimonial-card-body">
+                                    <div class="testimonial-info">
+                                        <div class="reviewr-info">
+                                            <div class="single-thumb">
+                                                <img src="{{testimonial.image.url}}" alt="">
+                                            </div>
+                                            <div class="reviwer-info-cotn">
+                                                <h5 class="reviewer-name">{{testimonial.name}}</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="review-texts">
+                                        <p>
+                                            {{testimonial.review}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% comment %}
+<div class="guide-area guide-style-one pt-110">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-sm-10">
+                <div class="section-head-alpha text-center mx-auto">
+                    <h2>Tour Guide</h2>
+                    <p>Duis rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus.
+                        Suspendissendt blandit interdum.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center g-4">
+            {% for guides in guide %}
+            <div class="col-lg-4 col-md-6 col-md-10 col-6">
+                <div class="guide-card-beta">
+                    <div class="guide-image">
+                        <img src="{{guides.guide_image.url}}" alt="">
+                        <ul class="guide-social-links d-flex justify-content-center flex-column gap-3">
+                            <li><a href="{{guides.guide_instagram_link}}"><i class='bx bxl-instagram'></i></a></li>
+                            <li><a href="{{guides.guide_facebook_link}}"><i class='bx bxl-facebook'></i></a></li>
+                            <li><a href="{{guides.guide_twitter_link}}"><i class='bx bxl-twitter'></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="guide-content">
+                        <a href="{% url 'web:guide' %}">
+                            <h4 class="guide-name">{{guides.guide_name}}</h4>
+                        </a>
+                        <h6 class="guide-designation">{{guides.guide_guide_role}}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endcomment %}
+
+<div class="blog-area blog-style-two pt-110 pb-110">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center">
+            <div class="col-lg-6 col-sm-10">
+                <div class="section-head-alpha">
+                    <h2>Recent Post</h2>
+                    <p>Duis rutrum nisl urna maecenas vel libero faucibus nisi vene natis hendrerit aid lectus
+                        suspendissendt.</p>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-10">
+                <div class="package-btn text-lg-end">
+                    <a href="{% url 'web:blog' %}" class="button-fill-primary all-package-btn">View All Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="more-update-section">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center gy-5">
+            <div class="col-lg-6 text-lg-start text-center">
+                <div class="more-update-content">
+                    <h2>Join Us for More Update</h2>
+                    <p>Duis rutrum nisl urna. Maecenas vel libero faucibus nisi venenatis hendrerit a id lectus.
+                        Suspendissendt blandit interdum.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 text-lg-end text-center">
+                <button class="button-fill-primary update-btn">Join Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+    function sitedelete(id) {
+        
+        swal("Thank You..!", {
+                        icon: "success",
+                    });
+            // .then((willDelete) => {
+            //     if (willDelete) { 
+            //         swal("Requested successfully..!", {
+            //             icon: "success",
+            //         });
+            //         setTimeout(function () {
+            //             window.location.href = ""
+            //         }, 1000);
+            //     } else {
+            //         swal("Cancelled!");
+            //     }
+            // });
+    }
+
+
+</script>
+
+
+
+{% endblock %}
